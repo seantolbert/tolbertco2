@@ -1,4 +1,4 @@
-import { faX } from "@fortawesome/free-solid-svg-icons";
+import { faChevronCircleDown, faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import Logo from "../assets/tolbertcologo.png";
@@ -6,31 +6,41 @@ import Logo from "../assets/tolbertcologo.png";
 const Nav = () => {
   const [toggle, setToggle] = useState(false);
 
+  const pages = [
+    { title: "Tasks", link: "#" },
+    { title: "Habits", link: "#" },
+    { title: "Journal", link: "#" },
+  ];
+
   return (
-    <nav>
-      <div className="p-3 fixed left-0 top-0 w-full z-50 flex justify-between">
-        <a href="#" className="flex gap-5 items-center">
-          {/* download CV */}
-          <div className="w-10">
-            <img src={Logo} alt="" />
-          </div>
-          <span>
-            Sean <strong> Tolbert</strong>
-          </span>
-        </a>
+    <nav className="p-5 flex justify-between items-start md:items-center">
+      {/*  */}
+      {/* left side */}
+      {/*  */}
+      <div className="flex gap-4 items-center">
+        <div className="w-10">
+          <img src={Logo} alt="Tolbert & Co Logo" />
+        </div>
+        <p>Sean Tolbert</p>
       </div>
+
       {/*  */}
-      {/* sidebar */}
+      {/* right side */}
       {/*  */}
-      <div className="absolute right-0 h-screen w-36 bg-black flex flex-col items-start pl-5 gap-2.5">
-        <button onClick={() => setToggle(true)} className="w-full flex justify-end p-2">
-            <FontAwesomeIcon icon={faX} />
-        </button>
-        <a href="#home">home</a>
-        <a href="#about">about</a>
-        <a href="#about">content</a>
-        <a href="#works">works</a>
-        <a href="#contact">contact</a>
+      <div>
+        <ul className="flex flex-col md:flex-row md:justify-start gap-5">
+          {pages.map((page, key) => (
+            <li className="flex group" key={key}>
+              <a href={page.link} className="flex items-center gap-2">
+                <FontAwesomeIcon
+                  icon={faChevronCircleDown}
+                  className="group-hover:opacity-100 opacity-0 transition-all duration-200"
+                />
+                <button>{page.title}</button>
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </nav>
   );

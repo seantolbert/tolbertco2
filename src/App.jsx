@@ -1,13 +1,18 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
 import Nav from "./components/Nav";
+import Dashboard from "./components/Dashboard";
+import Footer from "./components/Footer";
+import ColorPicker from "./components/ColorPicker";
+import Calendar from "./components/Calendar";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <div className="App text-white">
+    <div className="App ">
       <Nav />
+      {/* <Calendar /> */}
+      
+      {/* <ColorPicker /> */}
+      {/* <Dashboard /> */}
+      <Footer />
     </div>
   );
 }
