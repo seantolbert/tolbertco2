@@ -7,13 +7,13 @@ const Nav = () => {
   const [toggle, setToggle] = useState(false);
 
   const pages = [
-    { title: "Tasks", link: "#" },
-    { title: "Habits", link: "#" },
-    { title: "Journal", link: "#" },
+    { title: "Home", link: "#home" },
+    { title: "Projects", link: "#projects" },
+    { title: "Contact", link: "#contact" },
   ];
 
   return (
-    <nav className="p-5 flex justify-between items-start md:items-center">
+    <nav className="p-5 fixed top-0 w-full flex justify-between items-start md:items-center">
       {/*  */}
       {/* left side */}
       {/*  */}
