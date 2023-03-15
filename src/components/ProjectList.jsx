@@ -1,3 +1,5 @@
+import Project from "./Project";
+
 const ProjectList = () => {
   const projects = [
     { title: "Jungles of Dorado", link: "https://www.junglesofdorado.com/" },
@@ -6,19 +8,9 @@ const ProjectList = () => {
   ];
 
   return (
-    <div className="w-full flex justify-evenly">
+    <div className="w-full flex justify-evenly h-[50vh] items-center" id="projects">
       {projects.map((project, key) => (
-        <div
-          className="flex justify-evenly w-1/4 items-center p-5 rounded-3xl border"
-        >
-          <a
-            href={project.link}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <p>{project.title}</p>
-          </a>
-        </div>
+        <Project project={project} key={key} />
       ))}
     </div>
   );

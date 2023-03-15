@@ -7,11 +7,14 @@ html {
   /* background: rgb(16, 16, 16); */
 }
 
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
 .mobile-header {
   display: none;
 }
 .desktop-header {
   display: block;
 }
-
-
