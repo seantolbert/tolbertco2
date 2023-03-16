@@ -1,19 +1,18 @@
 import { faChevronCircleDown, faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
 import Logo from "../assets/tolbertcologo.png";
+import { useWindow } from "../hooks/useWindow";
+import { pages } from "../data/navData";
 
 const Nav = () => {
-  const [toggle, setToggle] = useState(false);
-
-  const pages = [
-    { title: "Home", link: "#home" },
-    { title: "Projects", link: "#projects" },
-    { title: "Contact", link: "#contact" },
-  ];
+  const { scrollPosition } = useWindow();
 
   return (
-    <nav className="p-5 fixed top-0 w-full flex justify-between items-start md:items-center z-20">
+    <nav
+      className={`p-5 fixed top-0 w-full flex justify-between items-start md:items-center z-20 ${
+        scrollPosition > 0 ? "bg-black" : "bg-transparent"
+      }`}
+    >
       {/*  */}
       {/* left side */}
       {/*  */}

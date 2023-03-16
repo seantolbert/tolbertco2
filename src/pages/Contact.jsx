@@ -47,23 +47,11 @@ const Contact = () => {
 
   return (
     <div
-      className="flex flex-col gap-2 justify-center items-center h-screen text-black"
+      className="flex flex-col gap-2 justify-center items-center h-screen "
       id="contact"
     >
-      {/*  */}
-      {/* notification */}
-      {/*  */}
-
       {showNotification ? (
         emailError ? (
-          <div className="bg-green-400 p-2 flex items-center gap-3 h-fit rounded-lg ">
-            <FontAwesomeIcon icon={faCheck} />
-            <span>Email sent, thank you for your message!</span>
-            <button className="text-2xl">
-              <FontAwesomeIcon icon={faCircleXmark} />
-            </button>
-          </div>
-        ) : (
           <div className="bg-rose-400 p-2 flex items-center gap-3 h-fit rounded-lg ">
             <FontAwesomeIcon icon={faFaceSadCry} />
             <span>Please email me directly at sean@tolbert.me</span>
@@ -74,9 +62,20 @@ const Contact = () => {
               <FontAwesomeIcon icon={faCircleXmark} />
             </button>
           </div>
+        ) : (
+          <div className="bg-green-400 p-2 flex items-center gap-3 h-fit rounded-lg ">
+            <FontAwesomeIcon icon={faCheck} />
+            <span>Email sent, thank you for your message!</span>
+            <button
+              className="text-2xl"
+              onClick={() => setShowNotification(false)}
+            >
+              <FontAwesomeIcon icon={faCircleXmark} />
+            </button>
+          </div>
         )
       ) : null}
-      <div className="p-5 border md:w-1/2 xl:w-2/5 bg-white rounded-xl">
+      <div className="p-5 w-full md:w-1/2 xl:w-2/5 rounded-xl">
         <div className="flex justify-between">
           <h2 className="text-3xl pb-10 uppercase">Contact me</h2>
         </div>
@@ -94,7 +93,7 @@ const Contact = () => {
               value={formData.name}
               onChange={handleChange}
               name="name"
-              className="bg-transparent border-b-2 transition-all duration-150 group-hover:border-black w-3/4 p-2"
+              className="bg-transparent border-b-2 transition-all duration-150 border-gray-400 group-hover:border-white w-3/4 pb-2"
             />
           </div>
           <div className="flex justify-evenly items-center gap-5 group">
@@ -110,7 +109,7 @@ const Contact = () => {
               value={formData.email}
               onChange={handleChange}
               name="email"
-              className="bg-transparent transition-all duration-150 group-hover:border-black border-b-2 w-3/4 p-2"
+              className="bg-transparent transition-all duration-150 border-gray-400 group-hover:border-white border-b-2 w-3/4 pb-2"
             />
           </div>
           <div className="flex justify-evenly items-start gap-5 group">
@@ -125,7 +124,7 @@ const Contact = () => {
               value={formData.message}
               onChange={handleChange}
               name="message"
-              className="transition-all duration-150 group-hover:border-black bg-transparent w-3/4 p-2 border-b-2"
+              className="transition-all duration-150 border-gray-400 group-hover:border-white bg-transparent w-3/4 pb-2 border-b-2"
             />
           </div>
           <button type="submit">Submit</button>
