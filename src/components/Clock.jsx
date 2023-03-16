@@ -19,49 +19,33 @@ const Clock = () => {
   const m = ((minutes + seconds / 60) / 60) * 360;
   const h = ((hours + minutes / 60) / 12) * 360;
 
-  const shadow = {
-    background: "linear-gradient(145deg, #e7e7e7, #c2c2c2)",
-    boxShadow: "6px 6px 11px #adadad, -6px -6px 11px #ffffff",
-  };
-
   return (
-    <div className="absolute h-full right-0 w-2/3 flex justify-center items-center z-0">
-      <div className="w-[30rem] h-[30rem] rounded-full flex flex-col justify-between items-center">
-        <div className="w-5 h-10 rounded-full" style={shadow}></div>
+    <div className="w-1/3 z-0 flex items-center justify-center absolute right-0">
+      <div className="w-[30rem] h-[30rem] rounded-full flex flex-col justify-center items-center">
         <div className="flex w-full justify-between relative h-10 items-end">
-          <div
-            className="w-10 h-5 bg-transparent rounded-full"
-            style={shadow}
-          ></div>
-          <div className="flex relative justify-center justify-items-center items-end">
+          <div className="flex relative justify-center items-end w-full">
             <div
-              className="absolute bg-black h-40 w-4 rounded-full origin-bottom transition-all duration-100 "
-              style={{
-                transform: `rotate(${h}deg)`,
-                background: "linear-gradient(145deg, #e7e7e7, #c2c2c2)",
-                boxShadow: "6px 6px 11px #adadad, -6px -6px 11px #ffffff",
-              }}
+              className="absolute border-4 border-gray-300 h-20 w-8 rounded-full origin-bottom transition-all duration-100 "
+              style={{ transform: `rotate(${h}deg)` }}
             ></div>
             <div
-              className="absolute bg-red-400 h-48 w-4 rounded-full origin-bottom transition-all duration-100"
-              style={{
-                transform: `rotate(${m}deg)`,
-                background: "linear-gradient(145deg, #e7e7e7, #c2c2c2)",
-                boxShadow: "6px 6px 11px #adadad, -6px -6px 11px #ffffff",
-              }}
+              className="absolute bg-gray-200 h-24 w-4 rounded-full origin-bottom transition-all duration-100"
+              style={{ transform: `rotate(${m}deg)` }}
             ></div>
             <div
-              className="absolute bg-green-400 h-60 w-3 rounded-full origin-bottom transition-all duration-100"
+              className="absolute bg-gray-100 h-32 w-3 rounded-full origin-bottom rotate-90"
               style={{
                 transform: `rotate(${s}deg)`,
-                background: "linear-gradient(145deg, #e7e7e7, #c2c2c2)",
-                boxShadow: "6px 6px 11px #adadad, -6px -6px 11px #ffffff",
+                transition: `${
+                  s === 0
+                    ? "none"
+                    : "all 1s cubic-bezier(0, 0, 1, 1)"
+                }`,
+                transitionDelay: `${s === 0 ? "1s" : "0s"}`,
               }}
             ></div>
           </div>
-          <div className="w-10 h-5 bg-black rounded-full" style={shadow}></div>
         </div>
-        <div className="w-5 h-10 bg-black rounded-full" style={shadow}></div>
       </div>
     </div>
   );

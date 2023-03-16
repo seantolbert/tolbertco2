@@ -13,7 +13,7 @@ const Nav = () => {
   ];
 
   return (
-    <nav className="p-5 fixed top-0 w-full flex justify-between items-start md:items-center">
+    <nav className="p-5 fixed top-0 w-full flex justify-between items-start md:items-center z-20">
       {/*  */}
       {/* left side */}
       {/*  */}

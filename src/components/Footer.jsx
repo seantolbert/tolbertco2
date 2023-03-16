@@ -13,7 +13,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Footer = () => {
   return (
-    <div className="w-full flex flex-col items-center gap-5">
+    <div className="w-full flex flex-col items-center gap-5 pb-10">
       {/*  */}
       {/* info */}
       {/*  */}
