@@ -1,4 +1,4 @@
-import { faBars, faHamburger, faX } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import Logo from "../assets/tolbertcologo.png";
@@ -11,7 +11,11 @@ const MobileNav = () => {
   const { scrollPosition } = useWindow();
 
   return (
-    <nav className="p-5 flex items-center justify-between fixed top-0 w-full">
+    <nav
+      className={`p-5 flex items-center justify-between fixed top-0 w-full transition duration-150 z-[20] ${
+        scrollPosition > 0 ? "bg-black" : "bg-transparent"
+      }`}
+    >
       <div className="flex gap-4 items-center">
         <div className="w-10">
           <img src={Logo} alt="Tolbert & Co Logo" />
@@ -26,11 +30,11 @@ const MobileNav = () => {
         )}
       </button>
       <div
-        className={`absolute right-0 top-0 h-fit w-fit mt-20 mr-2 transition-transform duration-200 ${
+        className={`absolute right-0 top-0 h-fit w-fit mt-20  transition-transform duration-200 ${
           open ? "translate-x-0" : "translate-x-52"
         }`}
       >
-        <ul className="flex flex-col gap-5">
+        <ul className="flex flex-col gap-5 bg-black rounded-bl-xl p-2">
           {pages.map((page, key) => (
             <li className="transition duration-100" key={key}>
               <a href={page.link}>{page.title}</a>
