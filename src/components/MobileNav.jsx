@@ -20,14 +20,14 @@ const MobileNav = () => {
       </div>
       <button onClick={() => setOpen(!open)}>
         {open ? (
-          <FontAwesomeIcon icon={faBars} size="2xl" />
+          <FontAwesomeIcon icon={faX} size="2xl" />
         ) : (
-          <FontAwesomeIcon icon={faX} size="2xl"/>
+          <FontAwesomeIcon icon={faBars} size="2xl" />
         )}
       </button>
       <div
-        className={`absolute right-0 top-0 h-fit w-fit mt-20 mr-5 transition-transform duration-200 ${
-          open ? "translate-x-52" : "translate-x-0"
+        className={`absolute right-0 top-0 h-fit w-fit mt-20 mr-2 transition-transform duration-200 ${
+          open ? "translate-x-0" : "translate-x-52"
         }`}
       >
         <ul className="flex flex-col gap-5">
