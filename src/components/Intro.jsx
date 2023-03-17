@@ -8,7 +8,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Intro = () => {
   return (
-    <div className="w-full lg:w-2/3 z-10 h-full flex flex-col justify-center">
+    <div className="w-full lg:w-2/3 h-full flex flex-col justify-center">
+      <div className="z-[10]">
+
+      
       <p className="p-16">
         As a skilled software developer, my mission is to develop innovative and
         reliable software solutions that optimize business operations, enhance
@@ -19,7 +22,7 @@ const Intro = () => {
         industry trends to deliver cutting-edge solutions. Let's work together
         to bring your ideas to life!
       </p>
-
+      </div>
       {/*  */}
       {/* technologies */}
       {/*  */}

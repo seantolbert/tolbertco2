@@ -35,7 +35,7 @@ const Project = ({ project, index }) => {
               onMouseOver={() => setTechTitle(tech.name)}
               onMouseLeave={() => setTechTitle("")}
             >
-              <div key={key} className="w-12">
+              <div key={key} className="w-10">
                 <img
                   src={tech.value}
                   alt="technology logo"

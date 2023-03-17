@@ -21,7 +21,7 @@ export const projects = [
     pageImage: JODImage,
     logoImage: JODLogo,
     description:
-      "Jungles ofr Dorado is a Django and python based app leveraging Wagtail as a CMS. My client can log in and change te artrangement of objects on each blog post, post images to his gallery, change background images for each page, and more.",
+      "Jungles of Dorado is a Django and python based app leveraging Wagtail as a CMS. My client can log in and change te artrangement of objects on each blog post, post images to his gallery, change background images for each page, and more.",
     link: "https://www.junglesofdorado.com/",
     git: "https://github.com/seantolbert/Jungles-of-Dorado",
     technology: [

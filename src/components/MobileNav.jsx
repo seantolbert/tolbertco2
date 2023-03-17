@@ -1,4 +1,4 @@
-import { faHamburger, faX } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faHamburger, faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import Logo from "../assets/tolbertcologo.png";
@@ -6,34 +6,38 @@ import { pages } from "../data/navData";
 import { useWindow } from "../hooks/useWindow";
 
 const MobileNav = () => {
-  const [toggle, setToggle] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const { scrollPosition } = useWindow();
 
   return (
-    <nav className="p-5 flex justify-between items-start">
+    <nav className="p-5 flex items-center justify-between fixed top-0 w-full">
       <div className="flex gap-4 items-center">
         <div className="w-10">
           <img src={Logo} alt="Tolbert & Co Logo" />
         </div>
         <p>Sean Tolbert</p>
       </div>
-      <button onClick={() => setToggle(!toggle)}>
-        {toggle ? (
-          <div className="fixed right-0 top-0 p-5 bg-black">
-            <FontAwesomeIcon icon={faX} className="pb-5" size="xl" />
-            <div className="flex flex-col gap-5">
-              {pages.map((page, key) => (
-                <a key={key} href={page.link} onClick={() => setToggle(false)}>
-                  {page.title}
-                </a>
-              ))}
-            </div>
-          </div>
+      <button onClick={() => setOpen(!open)}>
+        {open ? (
+          <FontAwesomeIcon icon={faBars} size="2xl" />
         ) : (
-          <FontAwesomeIcon icon={faHamburger} size="xl" />
+          <FontAwesomeIcon icon={faX} size="2xl"/>
         )}
       </button>
+      <div
+        className={`absolute right-0 top-0 h-fit w-fit mt-20 mr-5 transition-transform duration-200 ${
+          open ? "translate-x-52" : "translate-x-0"
+        }`}
+      >
+        <ul className="flex flex-col gap-5">
+          {pages.map((page, key) => (
+            <li className="transition duration-100" key={key}>
+              <a href={page.link}>{page.title}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
     </nav>
   );
 };
