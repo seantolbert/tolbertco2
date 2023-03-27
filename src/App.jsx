@@ -10,8 +10,8 @@ function App() {
 
   return (
     <>
-      <AnimatedBar />
-      <div className="text-white bg-[#000]">
+      <div className="text-white bg-black relative">
+        <AnimatedBar />
         {windowWidth < 720 ? <MobileNav /> : <Nav />}
         <Home />
         <About />

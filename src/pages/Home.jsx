@@ -11,6 +11,8 @@ import { useWindow } from "../hooks/useWindow";
 const Home = () => {
   const { windowWidth } = useWindow();
 
+
+
   return (
     <div className="h-screen flex items-center" id="home">
       {windowWidth > 720 && <Clock />}

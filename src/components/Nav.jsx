@@ -20,7 +20,7 @@ const Nav = () => {
         <div className="w-10">
           <img src={Logo} alt="Tolbert & Co Logo" />
         </div>
-        <p>Sean Tolbert</p>
+        <p className="uppercase tracking-[8px]">Tolbert & Co</p>
       </div>
 
       {/*  */}

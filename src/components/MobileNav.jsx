@@ -20,7 +20,7 @@ const MobileNav = () => {
         <div className="w-10">
           <img src={Logo} alt="Tolbert & Co Logo" />
         </div>
-        <p>Sean Tolbert</p>
+        {/* <p>Sean Tolbert</p> */}
       </div>
       <button onClick={() => setOpen(!open)}>
         {open ? (
