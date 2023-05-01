@@ -19,7 +19,7 @@ const About = () => {
             software applications that meet and exceed client expectations. I am
             committed to staying up-to-date with the latest technological
             advancements and industry trends to deliver cutting-edge solutions.
-            Let's work together to bring your ideas to life! Ya dig?
+            Let's work together to bring your ideas to life!
           </p>
         </div>
         {/*  */}
