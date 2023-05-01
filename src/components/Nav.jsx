@@ -32,7 +32,7 @@ const Nav = () => {
             <li className="flex group" key={key}>
               <a href={page.link} className="flex items-center gap-2">
                 <FontAwesomeIcon
-                  icon={faChevronCircleDown}
+                  icon={page.icon}
                   className="group-hover:opacity-100 opacity-0 transition-all duration-200"
                 />
                 <button>{page.title}</button>
