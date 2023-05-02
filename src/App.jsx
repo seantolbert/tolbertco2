@@ -1,6 +1,6 @@
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
-import { Home, About, ProjectList, Contact } from "./pages";
+import { Home, About, ProjectList, Contact, Works } from "./pages";
 import { useWindow } from "./hooks/useWindow";
 import MobileNav from "./components/MobileNav";
 import AnimatedBar from "./components/AnimatedBar";
@@ -15,7 +15,8 @@ function App() {
         {windowWidth < 720 ? <MobileNav /> : <Nav />}
         <Home />
         <About />
-        <ProjectList />
+        {/* <ProjectList /> */}
+        <Works />
         <Contact />
         <Footer />
       </div>

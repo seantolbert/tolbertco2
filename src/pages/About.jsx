@@ -7,6 +7,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const About = () => {
+
   return (
     <div className="h-screen" id="about">
       <div className="w-full lg:w-2/3 h-full flex items-center flex-col justify-center">

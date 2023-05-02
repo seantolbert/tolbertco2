@@ -1,18 +1,20 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
+import { getStorage } from "firebase/storage"
 
 const firebaseConfig = {
-  apiKey: "AIzaSyD0DdwG3p60Khc1dG-h0tm98MJxWj6V_lY",
+  apiKey: import.meta.env.VITE_FB_API_KEY,
   authDomain: "tolbertco-f5418.firebaseapp.com",
   projectId: "tolbertco-f5418",
   storageBucket: "tolbertco-f5418.appspot.com",
-  messagingSenderId: "1523512748",
-  appId: "1:1523512748:web:98c851ac4e955a6a0a7609",
-  measurementId: "G-MXTMCXKCKC",
+  messagingSenderId: import.meta.env.VITE_MS_ID,
+  appId: import.meta.env.VITE_FB_APP_ID,
+  measurementId: import.meta.env.VITE_FB_MEASUREMENT_ID,
 };
 
 const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app);
+const storage = getStorage(app)
 
-export { db };
+export { db, storage };
