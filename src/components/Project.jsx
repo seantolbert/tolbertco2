@@ -23,7 +23,7 @@ const Project = ({ project }) => {
           <img src={logo} alt={`${title} Logo`} className="w-full" />
         </div>
         <p className="text-xs text-slate-300 line-clamp-3">{description}</p>
-        <div className="w-full flex justify-between md:flex-col gap-10 items-center">
+        <div className="w-full flex justify-between flex-col gap-10 items-center">
           <div className="flex gap-5 md:gap-10 items-center pb-3">
             <span className="text-xs text-slate-500 uppercase tracking-5px">
               demos
