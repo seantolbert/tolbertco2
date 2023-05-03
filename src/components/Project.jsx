@@ -1,88 +1,61 @@
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
-import { useWindow } from "../hooks/useWindow";
+import React from "react";
 
-const Project = ({ project, index }) => {
-  const { title, pageImage, logoImage, description, link, git, technology } =
-    project;
-
-  const { windowWidth } = useWindow();
-
-  const [techTitle, setTechTitle] = useState("");
+const Project = ({ project }) => {
+  const { title, tech, link, description, logo, type } = project;
 
   return (
-    <div className="flex flex-col gap-5 w-full md:w-2/3 lg:w-1/4 p-5 rounded-3xl">
-      <p className="text-2xl w-full flex ">{title}</p>
-      {/*  */}
-      {/* screen shot */}
-      {/*  */}
-      <img src={pageImage} alt="screenshot from project" className="w-full" />
-      {/*  */}
-      {/* tech used */}
-      {/*  */}
-      <div className="flex flex-col gap-3 w-full ">
-        <div className="w-full flex justify-between items-center h-16">
-          <p className="uppercase tracking-[5px] text-xs">technology:</p>
-          <p className="text-sm">{techTitle}</p>
-        </div>
-        <div className="flex w-full justify-evenly items-center">
-          {technology.map((tech, key) => (
-            <button
-              key={key}
-              // added click function for mobile users
-              onClick={() => setTechTitle(tech.name)}
-              onMouseOver={() => setTechTitle(tech.name)}
-              onMouseLeave={() => setTechTitle("")}
-            >
-              <div key={key} className="w-10">
-                <img
-                  src={tech.value}
-                  alt="technology logo"
-                  className="w-full"
-                />
-              </div>
-            </button>
+    <article className="relative flex items-center flex-col rounded-lg p-5 gap-10 mb-10">
+      <span className="absolute right-0 top-0 text-xs p-2 uppercase tracking-5px text-slate-500">
+        {type}
+      </span>
+      <h3 className="text-2xl uppercase mr-auto text-left tracking-10px mt-5 border-t-2 border-b-2">
+        {title}
+      </h3>
+      <div className="w-2/5 my-5">
+        <img src={logo} alt={`${title} Logo`} className="w-full" />
+      </div>
+      <p className="text-sm uppercase text-slate-300">{description}</p>
+      <div className="w-full flex justify-between md:flex-col gap-10 items-center">
+        <div className="flex gap-5 md:gap-10 items-center">
+          <span className="text-xs text-slate-500 uppercase tracking-5px">
+            demos
+          </span>
+          {tech.map((item, key) => (
+            <div className="w-6 hover:scale-150 transition-all duration-150">
+              <img
+                src={item.imgURL}
+                alt={item.name}
+                className={`w-full ${item.name === "Wagtail" && "invert"}`}
+              />
+            </div>
           ))}
         </div>
-      </div>
-      {/*  */}
-      {/* description */}
-      {/*  */}
-      <p>{description}</p>
-      {/*  */}
-      {/* links */}
-      {/*  */}
-      <div className="w-full flex gap-5 justify-end items-center pt-5">
-        <div className="flex gap-3 items-center">
-          <p className="uppercase tracking-[5px] text-xs">Visit</p>
-          <a
-            href={link}
-            rel="noopener noreferrer"
-            target="_blank"
-            className="w-10"
-          >
-            <img src={logoImage} alt={title} className="w-full" />
-          </a>
-        </div>
-        <div className="flex gap-3 items-center">
-          <p className="uppercase tracking-[5px] text-xs">Repo</p>
-          <a
-            href={git}
-            rel="noopener noreferrer"
-            target="_blank"
-            className="text-4xl"
-          >
+
+        {/*  */}
+        {/* right buttons */}
+        {/*  */}
+        <div className="flex gap-5 ml-auto">
+          <div className="group">
+            <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+            <span className="pl-2 uppercase tracking-[5px] text-slate-500 text-sm group-hover:text-white transition-all duration-175">
+              visit
+            </span>
+            <div className="w-full bg-white h-1 mt-2 scale-x-0 group-hover:scale-x-100 origin-left transition-all duration-175"></div>
+          </div>
+          <div className="group">
             <FontAwesomeIcon icon={faGithub} />
-          </a>
+            <span className="pl-2 uppercase tracking-[5px] text-slate-500 text-sm group-hover:text-white transition-all duration-175">
+              repo
+            </span>
+            <div className="w-full bg-white h-1 mt-2 scale-x-0 group-hover:scale-x-100 origin-left transition-all duration-175"></div>
+          </div>
         </div>
       </div>
-      {windowWidth < 600 && (
-        <div className="w-full flex justify-end">
-          <div className="w-4/5 h-0.5 bg-white"></div>
-        </div>
-      )}
-    </div>
+    </article>
   );
 };
+
 export default Project;
