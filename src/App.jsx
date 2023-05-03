@@ -1,9 +1,10 @@
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
-import { Home, About, ProjectList, Contact, Works } from "./pages";
+import { Home, About, Contact, Works } from "./pages";
 import { useWindow } from "./hooks/useWindow";
 import MobileNav from "./components/MobileNav";
 import AnimatedBar from "./components/AnimatedBar";
+
 
 function App() {
   const { windowWidth } = useWindow();
