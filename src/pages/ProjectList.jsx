@@ -5,7 +5,7 @@ const ProjectList = () => {
   return (
     <div
       className="w-full flex flex-col gap-10 justify-start items-center"
-      id="projects"
+      id="works"
     >
       <h2 className="text-3xl pl-5 uppercase">Works</h2>
       <div className="w-full flex flex-col lg:flex-row justify-evenly items-center lg:items-start">

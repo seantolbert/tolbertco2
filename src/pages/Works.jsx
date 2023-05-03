@@ -9,7 +9,7 @@ const Works = () => {
   const { documents: works } = useCollection("works");
 
   return (
-    <div className="min-h-screen max-w-5xl md:px-5 mx-auto">
+    <div className="min-h-screen max-w-5xl md:px-5 mx-auto" id="works">
       <h1>Works</h1>
       <div className="gap-10 columns-1 md:columns-2 lg:columns-3 xl:col-span-4">
         {works

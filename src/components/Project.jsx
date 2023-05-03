@@ -7,7 +7,7 @@ const Project = ({ project }) => {
   const { title, tech, link, description, logo, type } = project;
 
   return (
-    <article className="relative flex items-center flex-col rounded-lg p-5 gap-10 mb-10">
+    <article className="relative flex items-center flex-col rounded-lg p-5 gap-10 mb-10 break-inside-avoid">
       <span className="absolute right-0 top-0 text-xs p-2 uppercase tracking-5px text-slate-500">
         {type}
       </span>
@@ -17,7 +17,7 @@ const Project = ({ project }) => {
       <div className="w-2/5 my-5">
         <img src={logo} alt={`${title} Logo`} className="w-full" />
       </div>
-      <p className="text-sm uppercase text-slate-300">{description}</p>
+      <p className="text-xs uppercase text-slate-300">{description}</p>
       <div className="w-full flex justify-between md:flex-col gap-10 items-center">
         <div className="flex gap-5 md:gap-10 items-center">
           <span className="text-xs text-slate-500 uppercase tracking-5px">
