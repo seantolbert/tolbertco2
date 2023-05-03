@@ -16,7 +16,6 @@ function App() {
         {windowWidth < 720 ? <MobileNav /> : <Nav />}
         <Home />
         <About />
-        {/* <ProjectList /> */}
         <Works />
         <Contact />
         <Footer />
