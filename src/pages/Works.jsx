@@ -5,7 +5,7 @@ import Cert from "../components/Cert";
 import Post from "../components/Post";
 import Isotope from "isotope-layout";
 import Filter from "../components/Filter";
-import imagesloaded from "imagesloaded";
+import imagesLoaded from "imagesloaded";
 
 const Works = () => {
   const { documents: works } = useCollection("works");
