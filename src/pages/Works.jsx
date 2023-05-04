@@ -5,6 +5,7 @@ import Cert from "../components/Cert";
 import Post from "../components/Post";
 import Isotope from "isotope-layout";
 import Filter from "../components/Filter";
+import imagesloaded from "imagesloaded";
 
 const Works = () => {
   const { documents: works } = useCollection("works");
@@ -27,7 +28,14 @@ const Works = () => {
           queue: false,
         },
       });
+
+      const images = document.querySelectorAll(".filter-item img");
+      imagesLoaded(images, () => {
+        isotope.current.layout();
+      });
     }, 1000);
+
+    // return () => isotope.current.destroy();
   }, []);
 
   useEffect(() => {
@@ -41,8 +49,10 @@ const Works = () => {
   const handleFilterChange = (key) => () => setFilterKey(key);
 
   return (
-    <div className="min-h-screen max-w-5xl md:px-5 mx-auto" id="works">
-      <h1 className="w-full text-center uppercase text-xl tracking-[5px] mb-16">Works</h1>
+    <div className="max-w-5xl md:px-5 mx-auto" id="works">
+      <h1 className="w-full text-center uppercase text-xl tracking-[5px] mb-16">
+        Works
+      </h1>
 
       <Filter handleFilterChange={handleFilterChange} filterKey={filterKey} />
 

@@ -27,7 +27,7 @@ const About = () => {
         {/* technologies */}
         {/*  */}
 
-        <div className="ml-16 p-5 flex gap-12 text-6xl bg-black rounded-2xl w-fit">
+        <div className="p-5 flex gap-12 text-6xl bg-black rounded-2xl w-fit">
           <FontAwesomeIcon icon={faReact} color="#02CDF1" />
           <FontAwesomeIcon icon={faJs} color="yellow" />
         </div>
