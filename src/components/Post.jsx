@@ -2,12 +2,11 @@ import { faGlasses } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Post = ({ post }) => {
-  const { title, postImage, type, excerpt, paragraphs } = post;
+  const { title, postImage, paragraphs } = post;
 
   return (
     <article
       className="p-5 md:p-2 w-full md:w-1/2 lg:w-1/3 filter-item"
-      key={post.id}
       id="post"
     >
       <div className="relative flex flex-col gap-5 p-2 transition duration-500 hover:shadow-neu hover:scale-[1.01] rounded-2xl border-b border-r border-slate-600">
@@ -15,7 +14,7 @@ const Post = ({ post }) => {
           Blog Post
         </span>
         <div>
-          <img src={postImage} alt="" />
+          <img src={postImage} alt="" className="w-full" />
         </div>
         <h3 className="uppercase font-bold mb-5">{title}</h3>
         <p className="text-xs text-slate-300 line-clamp-3">{paragraphs[0]}</p>

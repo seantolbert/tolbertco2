@@ -5,7 +5,7 @@ const Cert = ({ cert }) => {
     <article
       className="p-5 md:p-2 w-full md:w-1/2 lg:w-1/3 filter-item"
       id="certification"
-      key={cert.id}
+
     >
       <div className="rounded-2xl p-2 flex items-center relative border-b border-r border-gray-600 transition duration-500 hover:shadow-neu hover:scale-[1.01]">
         <span className="text-xs uppercase p-2 text-slate-500 absolute top-0 right-0">
@@ -18,7 +18,7 @@ const Cert = ({ cert }) => {
           <h3 className="text-sm font-bold uppercase">{title}</h3>
           <div className="flex items-center">
             <div className="w-10">
-              <img src={orgLogo} alt="organization" classsName="w-full" />
+              <img src={orgLogo} alt="organization" className="w-full" />
             </div>
             <p>{org}</p>
           </div>

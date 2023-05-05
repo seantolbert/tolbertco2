@@ -1,16 +1,10 @@
-import {
-  faAws,
-  faJs,
-  faPython,
-  faReact,
-} from "@fortawesome/free-brands-svg-icons";
+import { faJs, faReact } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const About = () => {
-
   return (
     <div className="h-screen" id="about">
-      <div className="w-full lg:w-2/3 h-full flex items-center flex-col justify-center">
+      <div className="w-full lg:w-2/3 h-full flex items-end flex-col justify-center">
         <div className="z-[10]">
           <p className="p-16">
             As a skilled software developer, my mission is to develop innovative
@@ -23,10 +17,7 @@ const About = () => {
             Let's work together to bring your ideas to life!
           </p>
         </div>
-        {/*  */}
-        {/* technologies */}
-        {/*  */}
-
+        
         <div className="p-5 flex gap-12 text-6xl bg-black rounded-2xl w-fit">
           <FontAwesomeIcon icon={faReact} color="#02CDF1" />
           <FontAwesomeIcon icon={faJs} color="yellow" />

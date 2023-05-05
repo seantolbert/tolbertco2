@@ -60,15 +60,15 @@ const Works = () => {
         {works
           ? works.map((item) => {
               if (item.type === "post") {
-                return <Post post={item} />;
+                return <Post post={item} key={item.id}/>;
               }
 
               if (item.type === "certification") {
-                return <Cert cert={item} />;
+                return <Cert cert={item} key={item.id}/>;
               }
 
               if (item.type === "project") {
-                return <Project project={item} />;
+                return <Project project={item} key={item.id} />;
               }
             })
           : null}

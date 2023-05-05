@@ -4,13 +4,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
 const Project = ({ project }) => {
-  const { id, title, tech, link, repo, description, logo, type } = project;
+  const { title, tech, link, repo, description, logo, type } = project;
 
   return (
     <article
       className="p-5 md:p-2 w-full md:w-1/2 lg:w-1/3 filter-item"
       id="project"
-      key={id}
     >
       <div className="relative flex items-center flex-col rounded-2xl p-2 gap-10 border-b border-r border-gray-600 transition duration-500 hover:shadow-neu hover:scale-[1.01]">
         <span className="absolute right-0 top-0 text-xs p-2 uppercase tracking-5px text-slate-500">
@@ -29,7 +28,10 @@ const Project = ({ project }) => {
               demos
             </span>
             {tech.map((item, key) => (
-              <div className="w-6 hover:scale-150 transition-all duration-150">
+              <div
+                className="w-6 hover:scale-150 transition-all duration-150"
+                key={key}
+              >
                 <img
                   src={item.imgURL}
                   alt={item.name}
