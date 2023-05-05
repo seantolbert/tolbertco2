@@ -4,7 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
 const Project = ({ project }) => {
-  const { title, tech, link, repo, description, logo, type } = project;
+  const { title, tech, link, repo, description, logo, type, completed } =
+    project;
 
   return (
     <article
@@ -15,9 +16,20 @@ const Project = ({ project }) => {
         <span className="absolute right-0 top-0 text-xs p-2 uppercase tracking-5px text-slate-500">
           {type}
         </span>
-        <h3 className="text-2xl uppercase mr-auto text-left tracking-10px mt-5 border-t-2 border-b-2">
-          {title}
-        </h3>
+        <div className="mr-auto">
+          <h3 className="text-2xl uppercase tracking-10px mt-5 border-t-2 border-b-2">
+            {title}
+          </h3>
+          {completed ? (
+            <span className="p-1 rounded-md uppercase text-[10px] bg-green-400">
+              complete
+            </span>
+          ) : (
+            <span className="p-1 rounded-md uppercase text-[10px] bg-yellow-600">
+              pending
+            </span>
+          )}
+        </div>
         <div className="w-3/5 my-5">
           <img src={logo} alt={`${title} Logo`} className="w-full" />
         </div>

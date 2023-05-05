@@ -35,9 +35,9 @@ const Nav = () => {
               <a href={page.link} className="flex items-center gap-2">
                 <FontAwesomeIcon
                   icon={page.icon}
-                  className="group-hover:opacity-100 opacity-0 transition-all duration-200"
+                  className="group-hover:opacity-100 opacity-0 transition-all duration-200 text-slate-200"
                 />
-                <button>{page.title}</button>
+                <button className="uppercase text-slate-300">{page.title}</button>
               </a>
             </li>
           ))}

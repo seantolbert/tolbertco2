@@ -45,6 +45,9 @@ const Contact = () => {
     setFormData({ name: "", email: "", message: "" });
   };
 
+  const disabled =
+    formData.name === "" || formData.email === "" || formData.message === "";
+
   return (
     <div
       className="flex flex-col gap-2 justify-center items-center h-screen "
@@ -115,7 +118,7 @@ const Contact = () => {
           <div className="flex justify-evenly items-start gap-5 group">
             <label
               htmlFor="contact-message"
-              className="w-1/4 uppercase transition-all duration-150 group-hover:tracking-[6px]"
+              className="w-1/4 uppercase transition-all duration-150 group-hover:tracking-[3px]"
             >
               Message
             </label>
@@ -127,7 +130,13 @@ const Contact = () => {
               className="transition-all duration-150 border-gray-400 group-hover:border-white bg-transparent w-3/4 pb-2 border-b-2"
             />
           </div>
-          <button type="submit">Submit</button>
+          <button
+            className="text-right disabled:text-slate-600 text-slate-300 transition duration-500 disabled:tracking-tight tracking-[5px] uppercase"
+            type="submit"
+            disabled={disabled}
+          >
+            Submit
+          </button>
         </form>
       </div>
     </div>
