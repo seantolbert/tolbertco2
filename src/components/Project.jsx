@@ -21,7 +21,7 @@ const Project = ({ project }) => {
             {title}
           </h3>
           {completed ? (
-            <span className="p-1 rounded-md uppercase text-[10px] bg-green-400">
+            <span className="p-1 rounded-md uppercase text-[10px] bg-green-500">
               complete
             </span>
           ) : (

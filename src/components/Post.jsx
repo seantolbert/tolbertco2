@@ -1,5 +1,6 @@
 import { faGlasses } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 
 const Post = ({ post }) => {
   const { title, postImage, paragraphs } = post;
@@ -21,9 +22,10 @@ const Post = ({ post }) => {
         <div className="w-full flex justify-end">
           <div className="group w-fit">
             <FontAwesomeIcon icon={faGlasses} />
-            <span className="pl-2 uppercase tracking-[5px] text-slate-500 text-sm group-hover:text-white transition-all duration-175">
+            
+            <Link to={`/blog/${post.id}`} className="pl-2 uppercase tracking-[5px] text-slate-500 text-sm group-hover:text-white transition-all duration-175">
               read on
-            </span>
+            </Link>
             <div className="w-full bg-white h-1 mt-2 scale-x-0 group-hover:scale-x-100 origin-left transition-all duration-175"></div>
           </div>
         </div>
