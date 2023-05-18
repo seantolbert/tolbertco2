@@ -6,12 +6,17 @@ import Post from "../components/Post";
 import Isotope from "isotope-layout";
 import Filter from "../components/Filter";
 import imagesLoaded from "imagesloaded";
+import { dumb } from "../data/dummy";
+import Test from "../components/Test";
 
 const Works = () => {
   const { documents: works } = useCollection("works");
+  const [mixedData, setMixedData] = useState([]);
 
   const isotope = useRef();
   const [filterKey, setFilterKey] = useState("*");
+
+  const repos = [];
 
   useEffect(() => {
     setTimeout(() => {
@@ -22,9 +27,17 @@ const Works = () => {
         masonry: {
           columnWidth: ".filter-item",
         },
+        hiddenStyle: {
+          opacity: 0,
+        },
+
+        visibleStyle: {
+          opacity: 1,
+        },
+
+        transitionDuration: "0.8s",
         animationOptions: {
-          duration: 750,
-          easing: "linear",
+          stagger: 150,
           queue: false,
         },
       });
@@ -35,8 +48,28 @@ const Works = () => {
       });
     }, 1000);
 
+    // const mixData = () => {
+    //   if (works && dumb) {
+    //     const mixed = [...works, ...dumb];
+    //     mixed.sort(() => Math.random() - 0.5);
+    //     setMixedData(mixed);
+    //   }
+    // };
+    // mixData();
+
     // return () => isotope.current.destroy();
   }, []);
+
+  useEffect(() => {
+    const mixData = () => {
+      if (works && dumb) {
+        const mixed = [...works, ...dumb];
+        mixed.sort(() => Math.random() - 0.5);
+        setMixedData(mixed);
+      }
+    };
+    mixData();
+  }, [works]);
 
   useEffect(() => {
     if (isotope.current) {
@@ -57,18 +90,22 @@ const Works = () => {
       <Filter handleFilterChange={handleFilterChange} filterKey={filterKey} />
 
       <div className="filter-container ">
-        {works
-          ? works.map((item) => {
+        {mixedData
+          ? mixedData.map((item, idx) => {
               if (item.type === "post") {
-                return <Post post={item} key={item.id}/>;
+                return <Post post={item} key={item.id} />;
               }
 
               if (item.type === "certification") {
-                return <Cert cert={item} key={item.id}/>;
+                return <Cert cert={item} key={item.id} />;
               }
 
               if (item.type === "project") {
                 return <Project project={item} key={item.id} />;
+              }
+
+              if (item.type === "test") {
+                return <Test testItem={item} key={idx} />;
               }
             })
           : null}
