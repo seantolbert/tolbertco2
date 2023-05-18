@@ -8,6 +8,10 @@ import Filter from "../components/Filter";
 import imagesLoaded from "imagesloaded";
 import { dumb } from "../data/dummy";
 import Test from "../components/Test";
+import { useGitRepos } from "../hooks/useGitRepos";
+import Project2 from "../components/Project2";
+import { storage } from "../firebase/config";
+import { ref, getDownloadURL, list } from "firebase/storage";
 
 const Works = () => {
   const { documents: works } = useCollection("works");
@@ -16,7 +20,7 @@ const Works = () => {
   const isotope = useRef();
   const [filterKey, setFilterKey] = useState("*");
 
-  const repos = [];
+  const { reposLoading, repoError, repos } = useGitRepos();
 
   useEffect(() => {
     setTimeout(() => {
@@ -27,13 +31,13 @@ const Works = () => {
         masonry: {
           columnWidth: ".filter-item",
         },
-        hiddenStyle: {
-          opacity: 0,
-        },
+        // hiddenStyle: {
+        //   opacity: 0,
+        // },
 
-        visibleStyle: {
-          opacity: 1,
-        },
+        // visibleStyle: {
+        //   opacity: 1,
+        // },
 
         transitionDuration: "0.8s",
         animationOptions: {
@@ -62,14 +66,14 @@ const Works = () => {
 
   useEffect(() => {
     const mixData = () => {
-      if (works && dumb) {
-        const mixed = [...works, ...dumb];
+      if (works && repos) {
+        const mixed = [...works, ...repos];
         mixed.sort(() => Math.random() - 0.5);
         setMixedData(mixed);
       }
     };
     mixData();
-  }, [works]);
+  }, [works, repos]);
 
   useEffect(() => {
     if (isotope.current) {
@@ -100,12 +104,12 @@ const Works = () => {
                 return <Cert cert={item} key={item.id} />;
               }
 
-              if (item.type === "project") {
-                return <Project project={item} key={item.id} />;
-              }
+              // if (item.type === "project") {
+              //   return <Project project={item} key={item.id} />;
+              // }
 
-              if (item.type === "test") {
-                return <Test testItem={item} key={idx} />;
+              if (item.type === "repo") {
+                return <Project2 project={item} key={item.id} />;
               }
             })
           : null}
