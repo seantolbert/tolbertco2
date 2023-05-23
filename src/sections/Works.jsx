@@ -12,6 +12,8 @@ import { useGitRepos } from "../hooks/useGitRepos";
 import Project2 from "../components/Project2";
 import { storage } from "../firebase/config";
 import { ref, getDownloadURL, list } from "firebase/storage";
+import { galleryImages } from "../data/images";
+import GalleryImage from "../components/GalleryImage";
 
 const Works = () => {
   const { documents: works } = useCollection("works");
@@ -26,18 +28,12 @@ const Works = () => {
     setTimeout(() => {
       isotope.current = new Isotope(".filter-container", {
         itemSelector: ".filter-item",
+        layoutMode: "masonry",
         originTop: true,
         percentPosition: true,
         masonry: {
           columnWidth: ".filter-item",
         },
-        // hiddenStyle: {
-        //   opacity: 0,
-        // },
-
-        // visibleStyle: {
-        //   opacity: 1,
-        // },
 
         transitionDuration: "0.8s",
         animationOptions: {
@@ -51,23 +47,12 @@ const Works = () => {
         isotope.current.layout();
       });
     }, 1000);
-
-    // const mixData = () => {
-    //   if (works && dumb) {
-    //     const mixed = [...works, ...dumb];
-    //     mixed.sort(() => Math.random() - 0.5);
-    //     setMixedData(mixed);
-    //   }
-    // };
-    // mixData();
-
-    // return () => isotope.current.destroy();
   }, []);
 
   useEffect(() => {
     const mixData = () => {
       if (works && repos) {
-        const mixed = [...works, ...repos];
+        const mixed = [...works, ...repos, ...galleryImages];
         mixed.sort(() => Math.random() - 0.5);
         setMixedData(mixed);
       }
@@ -104,12 +89,12 @@ const Works = () => {
                 return <Cert cert={item} key={item.id} />;
               }
 
-              // if (item.type === "project") {
-              //   return <Project project={item} key={item.id} />;
-              // }
-
               if (item.type === "repo") {
                 return <Project2 project={item} key={item.id} />;
+              }
+
+              if (item.type === "gallery") {
+                return <GalleryImage link={item} key={idx} />;
               }
             })
           : null}
