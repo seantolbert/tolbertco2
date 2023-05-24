@@ -7,6 +7,7 @@ import AnimatedBar from "./components/AnimatedBar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import BlogPage from "./pages/BlogPage";
+import Admin from "./pages/Admin";
 
 function App() {
   const { windowWidth } = useWindow();
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/blog/:id" element={<BlogPage />} />
+          <Route path="/admin/*" element={<Admin />} />
         </Routes>
       </BrowserRouter>
       <Footer />
