@@ -5,6 +5,8 @@ import { collection, onSnapshot, query, where } from "firebase/firestore";
 
 export const useCollection = (c, _q) => {
   const [documents, setDocuments] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const q = useRef(_q).current;
 
@@ -16,15 +18,22 @@ export const useCollection = (c, _q) => {
     }
 
     const unsubscribe = onSnapshot(ref, (snapshot) => {
-      let results = [];
-      snapshot.docs.forEach((doc) => {
-        results.push({ ...doc.data(), id: doc.id });
-      });
-      setDocuments(results);
+      try {
+        let results = [];
+        snapshot.docs.forEach((doc) => {
+          results.push({ ...doc.data(), id: doc.id });
+        });
+        setDocuments(results);
+        setIsLoading(false);
+      } catch (err) {
+        setDocuments(null)
+        setError(err);
+        setIsLoading(false);
+      }
     });
 
     return () => unsubscribe();
   }, [c, q]);
 
-  return { documents };
+  return { documents, isLoading };
 };

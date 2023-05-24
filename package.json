@@ -16,12 +16,14 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@tailwindcss/line-clamp": "^0.4.4",
     "firebase": "^9.17.2",
+    "firebase-tools": "^12.1.0",
     "graphql": "^16.6.0",
     "imagesloaded": "^5.0.0",
     "isotope-layout": "^3.0.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
+    "react-hot-toast": "^2.4.1",
     "react-router-dom": "^6.11.1"
   },
   "devDependencies": {

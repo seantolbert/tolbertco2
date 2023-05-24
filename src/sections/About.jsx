@@ -1,5 +1,6 @@
 import { faJs, faReact } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { toast } from "react-hot-toast";
 
 const About = () => {
   return (
@@ -17,6 +18,8 @@ const About = () => {
             Let's work together to bring your ideas to life!
           </p>
         </div>
+
+        <button className="border-gray-600 p-5 rounded-lg" onClick={() => toast('Here is a toast')}>toast</button>
         
         <div className="p-5 flex gap-12 text-6xl bg-black rounded-2xl w-fit">
           <FontAwesomeIcon icon={faReact} color="#02CDF1" />

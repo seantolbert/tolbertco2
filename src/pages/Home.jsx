@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <>
       <AnimatedBar />
-      {windowWidth < 720 ? <MobileNav /> : <Nav />}
+      {windowWidth < 768 ? <MobileNav /> : <Nav />}
       <Top />
       <About />
       {/* <GooglePhotos /> */}

@@ -16,13 +16,13 @@ import { galleryImages } from "../data/images";
 import GalleryImage from "../components/GalleryImage";
 
 const Works = () => {
-  const { documents: works } = useCollection("works");
+  const { documents: works, isLoading } = useCollection("works");
   const [mixedData, setMixedData] = useState([]);
 
   const isotope = useRef();
   const [filterKey, setFilterKey] = useState("*");
 
-  const { reposLoading, repoError, repos } = useGitRepos();
+  const { reposLoading, repos } = useGitRepos();
 
   useEffect(() => {
     setTimeout(() => {
