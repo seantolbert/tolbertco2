@@ -1,19 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import { useCollection } from "../hooks/useCollection";
-import Project from "../components/Project";
-import Cert from "../components/Cert";
-import Post from "../components/Post";
+import Cert from "../components/workCards/Cert";
+import Post from "../components/workCards/Post";
 import Isotope from "isotope-layout";
 import Filter from "../components/Filter";
 import imagesLoaded from "imagesloaded";
-import { dumb } from "../data/dummy";
-import Test from "../components/Test";
 import { useGitRepos } from "../hooks/useGitRepos";
-import Project2 from "../components/Project2";
-import { storage } from "../firebase/config";
-import { ref, getDownloadURL, list } from "firebase/storage";
+import Project2 from "../components/workCards/Project2";
 import { galleryImages } from "../data/images";
-import GalleryImage from "../components/GalleryImage";
+import GalleryImage from "../components/workCards/GalleryImage";
 
 const Works = () => {
   const { documents: works, isLoading } = useCollection("works");

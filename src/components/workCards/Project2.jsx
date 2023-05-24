@@ -2,8 +2,8 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import { useStorage } from "../hooks/useStorage";
-import Technology from "./Technology";
+import { useStorage } from "../../hooks/useStorage";
+import Technology from "../Technology";
 
 const Project2 = ({ project }) => {
   const titleFormatter = (t) => {

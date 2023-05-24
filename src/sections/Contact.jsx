@@ -6,6 +6,7 @@ import {
   faCircleXmark,
   faFaceSadCry,
 } from "@fortawesome/free-solid-svg-icons";
+import { toast } from "react-hot-toast";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -34,7 +35,8 @@ const Contact = () => {
         formData,
         "9_9mEiM-sQeZ4MSDl"
       );
-      console.log("EMail sent successfully");
+      // console.log("Email sent successfully");
+      toast.success("Thanks for the email! I will get back to you shortly")
       setEmailError(false);
       setShowNotification(true);
     } catch (err) {

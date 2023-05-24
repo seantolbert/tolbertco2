@@ -33,7 +33,7 @@ export const useCollection = (c, _q) => {
     });
 
     return () => unsubscribe();
-  }, [c, q]);
+  }, [c, _q]);
 
   return { documents, isLoading };
 };
