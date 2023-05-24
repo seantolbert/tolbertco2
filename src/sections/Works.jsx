@@ -11,13 +11,14 @@ import { galleryImages } from "../data/images";
 import GalleryImage from "../components/workCards/GalleryImage";
 
 const Works = () => {
-  const { documents: works, isLoading } = useCollection("works");
+  const { reposLoading, repos } = useGitRepos();
+  const { documents: posts, isLoading: postsLoading } = useCollection("blog");
+  const { documents: certs, isLoading: certsLoading } = useCollection("certs");
+
+  const [filterKey, setFilterKey] = useState("*");
   const [mixedData, setMixedData] = useState([]);
 
   const isotope = useRef();
-  const [filterKey, setFilterKey] = useState("*");
-
-  const { reposLoading, repos } = useGitRepos();
 
   useEffect(() => {
     setTimeout(() => {
@@ -46,14 +47,14 @@ const Works = () => {
 
   useEffect(() => {
     const mixData = () => {
-      if (works && repos) {
-        const mixed = [...works, ...repos, ...galleryImages];
+      if (posts && certs && repos) {
+        const mixed = [...posts, ...repos, ...galleryImages, ...certs];
         mixed.sort(() => Math.random() - 0.5);
         setMixedData(mixed);
       }
     };
     mixData();
-  }, [works, repos]);
+  }, [posts, repos, certs]);
 
   useEffect(() => {
     if (isotope.current) {

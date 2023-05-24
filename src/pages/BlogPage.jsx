@@ -6,7 +6,7 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 const BlogPage = () => {
   const { id } = useParams();
-  const { document: post, error } = useDocument("works", id);
+  const { document: post, error } = useDocument("blog", id);
 
   if (!post) {
     return <div>Loading...</div>;
