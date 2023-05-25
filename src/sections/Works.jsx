@@ -7,12 +7,13 @@ import { usePrintify } from "../hooks/usePrintify";
 // isotope layout
 import Isotope from "isotope-layout";
 import imagesLoaded from "imagesloaded";
+import { isotopeConfig } from "../data/isotope";
 
 // cards
-import Cert from "../components/workCards/Cert";
-import Post from "../components/workCards/Post";
-import Project from "../components/workCards/Project";
-import Shirt from "../components/workCards/Shirt";
+import Cert from "../components/cards/Cert";
+import Post from "../components/cards/Post";
+import Project from "../components/cards/Project";
+import Shirt from "../components/cards/Shirt";
 
 import Filter from "../components/Filter";
 
@@ -29,21 +30,7 @@ const Works = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      isotope.current = new Isotope(".filter-container", {
-        itemSelector: ".filter-item",
-        layoutMode: "masonry",
-        originTop: true,
-        percentPosition: true,
-        masonry: {
-          columnWidth: ".filter-item",
-        },
-
-        transitionDuration: "0.8s",
-        animationOptions: {
-          stagger: 150,
-          queue: false,
-        },
-      });
+      isotope.current = new Isotope(".filter-container", isotopeConfig);
 
       const images = document.querySelectorAll(".filter-item img");
       imagesLoaded(images, () => {
@@ -59,7 +46,6 @@ const Works = () => {
         const mixed = [
           ...posts,
           ...repos,
-          // ...galleryImages,
           ...certs,
           ...products,
         ];

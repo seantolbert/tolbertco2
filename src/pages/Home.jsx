@@ -3,6 +3,7 @@ import AnimatedBar from "../components/AnimatedBar";
 import MobileNav from "../components/MobileNav";
 import Nav from "../components/Nav";
 import { useWindow } from "../hooks/useWindow";
+import Gallery from "../sections/Gallery";
 import Shirts from "../sections/Shirts";
 import { Top, About, Works, Contact } from "../sections/index";
 
@@ -14,7 +15,7 @@ const Home = () => {
       {windowWidth < 768 ? <MobileNav /> : <Nav />}
       <Top />
       <About />
-      {/* <GooglePhotos /> */}
+      <Gallery />
       {/* <Shirts /> */}
       <Works />
       <Contact />
