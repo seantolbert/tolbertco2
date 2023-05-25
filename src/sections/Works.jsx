@@ -1,19 +1,26 @@
 import { useEffect, useRef, useState } from "react";
+// hooks
 import { useCollection } from "../hooks/useCollection";
+import { useGitRepos } from "../hooks/useGitRepos";
+import { usePrintify } from "../hooks/usePrintify";
+
+// isotope layout
+import Isotope from "isotope-layout";
+import imagesLoaded from "imagesloaded";
+
+// cards
 import Cert from "../components/workCards/Cert";
 import Post from "../components/workCards/Post";
-import Isotope from "isotope-layout";
+import Project from "../components/workCards/Project";
+import Shirt from "../components/workCards/Shirt";
+
 import Filter from "../components/Filter";
-import imagesLoaded from "imagesloaded";
-import { useGitRepos } from "../hooks/useGitRepos";
-import Project2 from "../components/workCards/Project2";
-import { galleryImages } from "../data/images";
-import GalleryImage from "../components/workCards/GalleryImage";
 
 const Works = () => {
-  const { reposLoading, repos } = useGitRepos();
+  const { repos, reposLoading } = useGitRepos();
   const { documents: posts, isLoading: postsLoading } = useCollection("blog");
   const { documents: certs, isLoading: certsLoading } = useCollection("certs");
+  const { products, isLoading: shirtsLoading } = usePrintify();
 
   const [filterKey, setFilterKey] = useState("*");
   const [mixedData, setMixedData] = useState([]);
@@ -45,16 +52,23 @@ const Works = () => {
     }, 1000);
   }, []);
 
+  // mix all the data up and randomize it
   useEffect(() => {
     const mixData = () => {
-      if (posts && certs && repos) {
-        const mixed = [...posts, ...repos, ...galleryImages, ...certs];
+      if (products && certs && repos && posts) {
+        const mixed = [
+          ...posts,
+          ...repos,
+          // ...galleryImages,
+          ...certs,
+          ...products,
+        ];
         mixed.sort(() => Math.random() - 0.5);
         setMixedData(mixed);
       }
     };
     mixData();
-  }, [posts, repos, certs]);
+  }, [posts, repos, certs, products]);
 
   useEffect(() => {
     if (isotope.current) {
@@ -86,11 +100,15 @@ const Works = () => {
               }
 
               if (item.type === "repo") {
-                return <Project2 project={item} key={item.id} />;
+                return <Project project={item} key={item.id} />;
               }
 
-              if (item.type === "gallery") {
-                return <GalleryImage link={item} key={idx} />;
+              // if (item.type === "gallery") {
+              //   return <GalleryImage link={item} key={idx} />;
+              // }
+
+              if (item.type === "product") {
+                return <Shirt prod={item} key={item.id} />;
               }
             })
           : null}

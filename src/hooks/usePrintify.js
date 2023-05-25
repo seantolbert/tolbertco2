@@ -5,8 +5,6 @@ export const usePrintify = () => {
   const [products, setProducts] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  // console.log(import.meta.env.VITE_PRINTIFY_API_KEY);
-
   useEffect(() => {
     const fetchProductInfo = async () => {
       try {
@@ -19,7 +17,12 @@ export const usePrintify = () => {
           }
         );
 
-        setProducts(res.data.data);
+        const typedProducts = res.data.data.map((prod) => ({
+          ...prod,
+          type: "product",
+        }));
+
+        setProducts(typedProducts);
         setIsLoading(false);
       } catch (err) {
         console.log(err.message);
