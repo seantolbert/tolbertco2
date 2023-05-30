@@ -68,9 +68,11 @@ const GalleryPage = () => {
         /> */}
       </div>
       <div className="gallery-container">
-        {mixedPics?.map((image, idx) => (
-          <GalleryCard link={image} key={idx} />
-        ))}
+        {mixedPics
+          ? mixedPics.map((image, idx) => (
+              <GalleryCard link={image} key={idx} />
+            ))
+          : null}
       </div>
     </div>
   );

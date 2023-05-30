@@ -70,11 +70,7 @@ const Works = () => {
         </h1>
       </div>
 
-      <Filter
-        handleFilterChange={handleFilterChange}
-        filters={workFilters}
-        filterKey={filterKey}
-      />
+      <Filter handleFilterChange={handleFilterChange} filters={workFilters} filterKey={filterKey} />
 
       <div className="filter-container ">
         {mixedData
