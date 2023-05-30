@@ -1,8 +1,7 @@
-import Nav from "./components/Nav";
+import {lazy} from 'react'
+
 import Footer from "./components/Footer";
 import { useWindow } from "./hooks/useWindow";
-import MobileNav from "./components/MobileNav";
-import AnimatedBar from "./components/AnimatedBar";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";

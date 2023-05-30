@@ -16,6 +16,7 @@ import Project from "../components/cards/Project";
 import Shirt from "../components/cards/Shirt";
 
 import Filter from "../components/Filter";
+import { workFilters } from "../data/filterCategories";
 
 const Works = () => {
   const { repos, reposLoading } = useGitRepos();
@@ -43,12 +44,7 @@ const Works = () => {
   useEffect(() => {
     const mixData = () => {
       if (products && certs && repos && posts) {
-        const mixed = [
-          ...posts,
-          ...repos,
-          ...certs,
-          ...products,
-        ];
+        const mixed = [...posts, ...repos, ...certs, ...products];
         mixed.sort(() => Math.random() - 0.5);
         setMixedData(mixed);
       }
@@ -68,11 +64,17 @@ const Works = () => {
 
   return (
     <div className="max-w-5xl md:px-5 mx-auto" id="works">
-      <h1 className="w-full text-center uppercase text-xl tracking-[5px] mb-16">
-        Works
-      </h1>
+      <div>
+        <h1 className="w-full text-center uppercase text-xl tracking-[5px] mb-16">
+          Works
+        </h1>
+      </div>
 
-      <Filter handleFilterChange={handleFilterChange} filterKey={filterKey} />
+      <Filter
+        handleFilterChange={handleFilterChange}
+        filters={workFilters}
+        filterKey={filterKey}
+      />
 
       <div className="filter-container ">
         {mixedData

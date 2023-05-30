@@ -23,7 +23,7 @@ const Shirt = ({ prod }) => {
           alt={`${prod.title} (front)`}
           className="w-full rounded-lg"
         />
-        <div className="absolute top-0 text-black uppercase text-md w-fit p-2 tracking-widest">
+        <div className="absolute top-0 text-black uppercase text-sm w-fit p-2 tracking-widest">
           <div className="scale-x-0 w-full group-hover:scale-x-100 transition duration-200 origin-left h-1 bg-black "></div>
           {prod.title}
           <div className="scale-x-0 w-full group-hover:scale-x-100 transition duration-200 origin-left h-1 bg-black "></div>

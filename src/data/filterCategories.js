@@ -1,8 +1,13 @@
-export const filters = [
+export const workFilters = [
   { name: "all", category: "*" },
   { name: "project", category: "project" },
   { name: "certification", category: "certification" },
-  // { name: "gallery", category: "gallery" },
   { name: "blog post", category: "post" },
   { name: "merch", category: "product" },
+];
+
+export const galleryFilters = [
+  { name: "all", category: "*" },
+  { name: "pup", category: "pup" },
+  { name: "mountain", category: "gallery" },
 ];

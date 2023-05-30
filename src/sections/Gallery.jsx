@@ -16,7 +16,7 @@ const Gallery = () => {
 
   return (
     <div
-      className="h-screen flex flex-col items-center justify-center gap-9 px-2 md:px-5 max-w-5xl mx-auto relative"
+      className="min-h-screen flex flex-col items-center justify-center gap-9 px-2 md:px-5 max-w-5xl mx-auto relative mb-20"
       id="gallery"
     >
       <h3 className="uppercase text-xl tracking-[5px] w-full text-center">

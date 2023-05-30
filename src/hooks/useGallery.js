@@ -17,7 +17,8 @@ export const useGallery = (path, limit = Infinity) => {
         for (let i = 0; i < limit && i < listResult.items.length; i++) {
           const item = listResult.items[i];
           const url = await getDownloadURL(item);
-          images.push(url);
+          const imgObject = { url, type: path.split("/")[1] };
+          images.push(imgObject);
         }
 
         setImageList(images);

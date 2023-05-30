@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./index.css";
@@ -16,9 +16,11 @@ const client = new ApolloClient({
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <ApolloProvider client={client}>
-      <Toaster position="bottom-right"/>
-      <App />
-    </ApolloProvider>
+    <Suspense fallback={<h1>Loading...</h1>}>
+      <ApolloProvider client={client}>
+        <Toaster position="bottom-right" />
+        <App />
+      </ApolloProvider>
+    </Suspense>
   </React.StrictMode>
 );
