@@ -8,7 +8,10 @@ import GallerySectionCard from "../components/cards/GallerySectionCard";
 const Gallery = () => {
   const { windowWidth } = useWindow();
 
-  const { imageList, isLoading, imgError } = useGallery("/gallery", 6);
+  // const { imageList, isLoading, imgError } = useGallery("/gallery", 6);
+
+  const imageList = []
+  const isLoading = false
 
   if (isLoading) {
     return <div>Loading...</div>;

@@ -70,11 +70,15 @@ const Works = () => {
         </h1>
       </div>
 
-      <Filter handleFilterChange={handleFilterChange} filters={workFilters} filterKey={filterKey} />
+      <Filter
+        handleFilterChange={handleFilterChange}
+        filters={workFilters}
+        filterKey={filterKey}
+      />
 
       <div className="filter-container ">
         {mixedData
-          ? mixedData.map((item, idx) => {
+          ? mixedData.map((item) => {
               if (item.type === "post") {
                 return <Post post={item} key={item.id} />;
               }
@@ -86,10 +90,6 @@ const Works = () => {
               if (item.type === "repo") {
                 return <Project project={item} key={item.id} />;
               }
-
-              // if (item.type === "gallery") {
-              //   return <GalleryImage link={item} key={idx} />;
-              // }
 
               if (item.type === "product") {
                 return <Shirt prod={item} key={item.id} />;
