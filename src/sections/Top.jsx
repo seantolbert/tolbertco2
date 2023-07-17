@@ -57,7 +57,7 @@ const Top = () => {
           </a>
         </div>
         <p className="text-2xl lg:pl-16">
-          I am a web developer based in Washington DC with a passion for clean
+          I am a web developer based in Northern Virginia with a passion for clean
           efficient code and SEO-friendly websites
         </p>
       </div>

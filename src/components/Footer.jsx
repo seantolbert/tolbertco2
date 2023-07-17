@@ -29,7 +29,7 @@ const Footer = () => {
         </div>
         <div className="flex gap-2 items-center">
           <FontAwesomeIcon icon={faLocation} />
-          <span>Washington, DC</span>
+          <span>Arlington, VA</span>
         </div>
       </div>
 
