@@ -15,7 +15,6 @@ const Home = () => {
       {windowWidth < 768 ? <MobileNav /> : <Nav />}
       <Top />
       <About />
-      <div>TETSTT</div>
       {/* <Gallery /> */}
       {/* <Shirts /> */}
       {/* <Works /> */}
